@@ -5,9 +5,9 @@ require 'critical_path_css/rails/config_loader'
 module CriticalPathCss
   CACHE_NAMESPACE = 'critical-path-css'.freeze
 
-  def self.generate(route)
+  def self.generate(route, key = route)
     ::Rails.cache.write(
-      route,
+      key.present? ? key : route,
       CssFetcher.new(config).fetch_route(route),
       namespace: CACHE_NAMESPACE,
       expires_in: nil
@@ -28,8 +28,8 @@ module CriticalPathCss
     ::Rails.cache.delete_matched(routes, namespace: CACHE_NAMESPACE)
   end
 
-  def self.fetch(route)
-    ::Rails.cache.read(route, namespace: CACHE_NAMESPACE) || ''
+  def self.fetch(key)
+    ::Rails.cache.read(key, namespace: CACHE_NAMESPACE) || ''
   end
 
   def self.config
