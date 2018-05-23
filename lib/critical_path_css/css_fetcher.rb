@@ -25,8 +25,8 @@ module CriticalPathCss
         'css' => @config.css_path,
         ## optional params
         # viewport dimensions
-        'width' => 1300,
-        'height' => 900,
+        'width' => 1920,
+        'height' => 1080,
         # CSS selectors to always include, e.g.:
         'forceInclude' => [
           #  '.keepMeEvenIfNotSeenInDom',
@@ -41,7 +41,7 @@ module CriticalPathCss
         # specify which user agent string when loading the page
         'userAgent' => 'Penthouse Critical Path CSS Generator',
         # ms; render wait timeout before CSS processing starts (default: 100)
-        'renderWaitTime' => 100,
+        'renderWaitTime' => 150,
         # set to false to load (external) JS (default: true)
         'blockJSRequests' => true,
         'customPageHeaders' => {
