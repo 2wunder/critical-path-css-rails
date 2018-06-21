@@ -10,7 +10,7 @@ module CriticalPathCss
       key.present? ? key : route,
       CssFetcher.new(config).fetch_route(route),
       namespace: CACHE_NAMESPACE,
-      expires_in: nil
+      expires_in: 1.week
     )
   end
 
